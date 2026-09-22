@@ -32,8 +32,7 @@ class ScreenTrackerApp:
         self.monitors: List[MonitorInfo] = self.grabber.get_monitors()
         self.mon_idx = next((i for i, m in enumerate(self.monitors) if m.is_primary), 0)
 
-        model_path = os.path.join(project_root, "weights", "best.pt")
-        self.predictor = SkillPredictor(model_path=model_path)
+        self.predictor = SkillPredictor()
         self.averager = CoordinateAverager()
 
         self._running, self._thread = False, None

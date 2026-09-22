@@ -46,9 +46,8 @@ class MainApp:
         self.monitors = self.grabber.get_monitors()
         self.mon_idx = next((i for i, m in enumerate(self.monitors) if m.is_primary), 0)
 
-        model_path = os.path.join(PROJECT_ROOT, "weights", "best.pt")
         try:
-            self.predictor = SkillPredictor(model_path=model_path)
+            self.predictor = SkillPredictor()
         except Exception as e:
             self.predictor = None
             print(f"[WARN] 模型加载失败，检测功能不可用: {e}")

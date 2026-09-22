@@ -9,11 +9,18 @@
 - **驱动级输入**：基于 [Interception](https://github.com/oblitum/Interception) 内核驱动的鼠标/键盘注入，可穿透游戏反作弊对普通注入事件的拦截
 - **收尾自动化（每轮连招后）**：滚轮上滚 → 按 `1` → 按 `空格` → (15s) 屏幕中心三连击 → **OCR 识别"再次挑战"按钮并自动点击** → 等待 6s 进入下一轮
 
+## 直接使用（免安装）
+
+从 [Releases](../../releases) 下载 `RocoKingdomAutoBattle.zip`，解压到任意目录（共约 255M，无需安装）：
+
+1. **首次使用**：右键以管理员身份运行解压目录中的 `driver_installer/install-interception.exe`，装完**重启电脑**
+2. 之后右键以管理员身份运行 `RocoKingdomAutoBattle.exe` 即可
+
 ## 环境要求
 
 - Windows 10/11，Python 3.12+
 - [uv](https://docs.astral.sh/uv/) 包管理器
-- NVIDIA GPU 可选（CUDA 加速检测；CPU 也能跑）
+- 推理基于 onnxruntime（CPU 即可）；仅训练模型时需要 NVIDIA GPU（CUDA）
 
 ## 安装与运行（源码）
 
@@ -30,7 +37,7 @@ uv sync
 driver_installer/install-interception.exe
 ```
 
-**模型权重**不在仓库中，从 [Releases](../../releases) 下载 `best.pt` 放入 `Skill-Locator/weights/`（或按 GUI 提示的位置）。
+**模型权重**不在仓库中，从 [Releases](../../releases) 下载 `best.onnx` 放入 `Skill-Locator/weights/`（推理走 onnxruntime，无需 PyTorch；训练才需要 `uv sync` 装 dev 依赖）。
 
 启动（需管理员权限才能向游戏注入点击）：
 
@@ -51,7 +58,7 @@ run_main_gui.bat        # 自动请求管理员权限
 ```text
 ├── Skill-Locator/
 │   ├── gui/               # 主程序（main_app.py：校准 + 连招双页签）
-│   ├── inference/         # clicker(驱动注入) / predictor(YOLO) / retry_locator(OCR)
+│   ├── inference/         # clicker(驱动注入) / predictor(ONNX 推理) / retry_locator(OCR)
 │   ├── capture/           # 多显示器 GDI 截图
 │   ├── training/          # YOLO 训练管道
 │   ├── configs/           # 校准坐标、连招配置、UI ROI
@@ -70,4 +77,4 @@ run_main_gui.bat        # 自动请求管理员权限
 ## 发布说明（维护者）
 
 - 权重、OCR 相关产物通过 GitHub Releases 附件分发，不进入 git
-- exe 打包：PyInstaller（`--uac-admin`，需收集 `rapidocr_onnxruntime` 与 `ultralytics` 数据文件）
+- exe 打包：PyInstaller（`--uac-admin`，spec 见 `RocoKingdomAutoBattle.spec`；推理用 onnxruntime，不打包 torch/ultralytics）
