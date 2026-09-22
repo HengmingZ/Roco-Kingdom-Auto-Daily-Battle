@@ -1,0 +1,33 @@
+{
+  "reference_resolution": {
+    "width": 1920,
+    "height": 1080
+  },
+  "description": "Normalized coordinates (0.0 - 1.0) for primary screen battle UI. box: [x1, y1, x2, y2]",
+  "slots": {
+    "slot_1": {
+      "slot_id": 1,
+      "name": "Skill 1",
+      "box_norm": [0.350, 0.850, 0.410, 0.950],
+      "pp_box_norm": [0.355, 0.952, 0.405, 0.980]
+    },
+    "slot_2": {
+      "slot_id": 2,
+      "name": "Skill 2",
+      "box_norm": [0.420, 0.850, 0.480, 0.950],
+      "pp_box_norm": [0.425, 0.952, 0.475, 0.980]
+    },
+    "slot_3": {
+      "slot_id": 3,
+      "name": "Skill 3",
+      "box_norm": [0.490, 0.850, 0.550, 0.950],
+      "pp_box_norm": [0.495, 0.952, 0.545, 0.980]
+    },
+    "slot_4": {
+      "slot_id": 4,
+      "name": "Skill 4",
+      "box_norm": [0.560, 0.850, 0.620, 0.950],
+      "pp_box_norm": [0.565, 0.952, 0.615, 0.980]
+    }
+  }
+}

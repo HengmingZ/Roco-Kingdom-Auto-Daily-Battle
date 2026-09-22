@@ -1,0 +1,10 @@
+# Auto-generated YOLO dataset configuration
+path: D:/sProject/GameTraining/RocoCapturor/Skill-Locator/data/yolo_dataset
+train: images/train
+val: images/val
+
+names:
+  0: skill_1
+  1: skill_2
+  2: skill_3
+  3: skill_4

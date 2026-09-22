@@ -1,0 +1,32 @@
+# Training configuration for Skill-Locator model
+experiment:
+  name: "skill_classifier_v1"
+  output_dir: "weights"
+
+dataset:
+  raw_dir: "data/raw"
+  cropped_dir: "data/cropped"
+  annotations_file: "data/annotations/labels.json"
+  img_size: [128, 128]
+  train_val_split: 0.8
+  num_classes: 50
+
+model:
+  backbone: "mobilenet_v3_small"
+  pretrained: true
+  dropout: 0.2
+  use_state_head: true  # predicts whether skill is usable (bright vs grayed out)
+
+training:
+  batch_size: 32
+  num_workers: 4
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  lr_scheduler: "cosine"
+  early_stopping_patience: 10
+
+export:
+  export_onnx: true
+  onnx_path: "weights/skill_locator.onnx"
+  opset_version: 17

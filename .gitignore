@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Model weights and training runs (distributed via GitHub Releases)
+weights/
+*.pt
+*.pth
+*.onnx
+
+# Training data / datasets (raw screenshots, annotations, yolo datasets)
+Skill-Locator/data/
+Skill-Locator/dataset/
+
+# Debug / test screenshots
+Skill-Locator/tests/output/

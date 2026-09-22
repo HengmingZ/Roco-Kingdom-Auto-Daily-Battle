@@ -1,0 +1,108 @@
+{
+  "calibrated_at": "2026-09-20 19:37:30",
+  "target_monitor": "\\\\.\\DISPLAY1",
+  "screen_resolution": [
+    2560,
+    1440
+  ],
+  "window_size": 100,
+  "total_frames_sampled": 8,
+  "skills": {
+    "1": {
+      "name": "技能 1",
+      "sample_count": 8,
+      "total_seen": 8,
+      "calibrated_center": [
+        483,
+        554
+      ],
+      "precise_center": [
+        482.62,
+        553.62
+      ],
+      "jitter_std_dev": [
+        0.99,
+        0.7
+      ],
+      "avg_confidence": 0.8839,
+      "last_bbox": [
+        410,
+        475,
+        556,
+        632
+      ]
+    },
+    "2": {
+      "name": "技能 2",
+      "sample_count": 8,
+      "total_seen": 8,
+      "calibrated_center": [
+        439,
+        740
+      ],
+      "precise_center": [
+        438.75,
+        740.25
+      ],
+      "jitter_std_dev": [
+        0.66,
+        0.43
+      ],
+      "avg_confidence": 0.8301,
+      "last_bbox": [
+        360,
+        666,
+        518,
+        815
+      ]
+    },
+    "3": {
+      "name": "技能 3",
+      "sample_count": 8,
+      "total_seen": 8,
+      "calibrated_center": [
+        463,
+        933
+      ],
+      "precise_center": [
+        462.75,
+        933.12
+      ],
+      "jitter_std_dev": [
+        0.43,
+        0.93
+      ],
+      "avg_confidence": 0.8598,
+      "last_bbox": [
+        381,
+        857,
+        545,
+        1009
+      ]
+    },
+    "4": {
+      "name": "技能 4",
+      "sample_count": 8,
+      "total_seen": 8,
+      "calibrated_center": [
+        554,
+        1100
+      ],
+      "precise_center": [
+        553.62,
+        1100.0
+      ],
+      "jitter_std_dev": [
+        1.41,
+        0.71
+      ],
+      "avg_confidence": 0.517,
+      "last_bbox": [
+        470,
+        1026,
+        638,
+        1173
+      ]
+    }
+  }
+}
