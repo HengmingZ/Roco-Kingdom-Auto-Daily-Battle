@@ -27,6 +27,7 @@ from __future__ import annotations
 import ctypes
 from ctypes import wintypes
 import os
+import sys
 import time
 from typing import Optional, Tuple
 
@@ -81,6 +82,11 @@ class InterceptionEngine:
             os.path.join(os.path.dirname(__file__), "..", "..", "..", "RocoClicker", "RocoKingdom_Clicker", "interception.dll"),
             "interception.dll",
         ]
+        if getattr(sys, "frozen", False):
+            # PyInstaller bundle: prefer the DLL bundled inside the app, then
+            # one placed next to the exe.
+            dll_candidates.insert(0, os.path.join(sys._MEIPASS, "driver_installer", "interception.dll"))
+            dll_candidates.insert(1, os.path.join(os.path.dirname(sys.executable), "driver_installer", "interception.dll"))
         for p in dll_candidates:
             if os.path.exists(p):
                 try:
