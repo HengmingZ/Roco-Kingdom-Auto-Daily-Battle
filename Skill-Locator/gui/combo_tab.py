@@ -382,7 +382,7 @@ class ComboTab(tk.Frame):
         if clicks == 0 and not self._stop:
             self._set_progress(f"第 {round_n} 轮 | 收尾 5/5: 未识别到\"再次挑战\"，跳过")
         if clicks > 0:
-            for remaining in range(6, 0, -1):
+            for remaining in range(9, 0, -1):
                 if self._stop:
                     return
                 self._set_progress(f"第 {round_n} 轮收尾完成 | 等待进入下一轮 ({remaining}s)")
